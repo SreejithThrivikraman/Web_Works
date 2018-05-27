@@ -1,10 +1,10 @@
 var user_name = "";
 var logged_in_flag = true;
+var task="";
 
 function auto()
 {
      json_operations();
-
      startTime();
      backgr();
      initialize();
@@ -59,10 +59,12 @@ function check_key()
     {
       if(logged_in_flag == true)                  // if the user is already logged in.
       {
-        var task = $("input#focuses").val();
-        var HTML_content = "<ul> <li> "+ task +"  </li></ul>";
+        task = $("input#focuses").val();
+        HTML_content = "<ul> <li> "+ task +"  </li></ul>";
         $("#focuses").replaceWith(HTML_content);
         $("#hidden").show();
+        $("#hidden_chk").show();
+        $("#hidden_but").show();
       }
 
       /* code to show the greeting with the user's name */
@@ -168,9 +170,31 @@ function initialize()
       //alert(user_name);
 
       $("#greeting").show();
+      $(hidden_chk).hide();
+      $(hidden_but).hide();
+
       var userName = localStorage.getItem("focus_name_temp_4");
       $("#user_name").replaceWith(userName);
     //  $("h3:first").replaceWith("<h3>What is your main focus for today?</h3>");
       $("#focuses").val('');
+      $(hidden_chk).hide();
     }
+}
+
+
+function checkbox_change()
+{
+  if(document.getElementById('hidden_chk').checked)
+  {
+   // checkBox is checked.
+   HTML_content = "<ul> <s><li> "+ task +"  </li></s></ul>";
+   $("ul:first").replaceWith(HTML_content);
+
+  }
+  else
+  {
+   // Not checked.
+   HTML_content = "<ul><li> "+ task +"  </li></ul>";
+   $("ul:first").replaceWith(HTML_content);
+  }
 }

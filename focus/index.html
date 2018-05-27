@@ -71,7 +71,7 @@
           outline:0;
           font-size:35px;
           text-align:center;
-          display: inline;
+          display:inline;
 
       }
 
@@ -99,12 +99,13 @@
       #hidden_chk {
           width:25px;
           margin-left:0px;
-          display: none;
+          display:inline;
           border:none;
           font-size:80%;
           line-height:100%;
           text-align:left;
           zoom:2.5;
+
       }
 
       #hidden_but
@@ -165,8 +166,6 @@
           line-height:120%;
     }
 
-
-
     </style>
 
   </head>
@@ -205,18 +204,19 @@
       <div class="hidden">
           <h3>What is your main focus for today?</h3>
       </div>
+
       <div class="tasks_entry">
-          <input id="hidden_chk" type="checkbox" ></input>
-          <input id="focuses" type="text" onkeypress="check_key()"></input>
-          <button id="hidden_but" type="button">X</button>
+          <span><input id="hidden_chk" type="checkbox" onchange="checkbox_change()"></input></span>
+          <span><input id="focuses" type="text" onkeypress="check_key()"></input></span>
+          <span><button id="hidden_but" type="button">X</button></span>
       </div>
     </div>
 
   </body>
 
-<footer>
-  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="source.js"></script>
-</footer>
+  <footer>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="source.js"></script>
+  </footer>
 
 </html>
