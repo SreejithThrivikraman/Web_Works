@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test site focus</title>
+
+    <style type="text/css">
+      h1
+      {
+
+        text-align:center;
+        line-height:1;
+        padding:0;
+        margin:0;
+        color:#fff;
+        letter-spacing:-5px;
+        font-size:1100%;
+        font-weight:500;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+      }
+
+      #greeting h2
+      {
+
+        text-align:center;
+        line-height:1;
+        padding:0;
+        margin:0;
+        color:#fff;
+        font-size:337.5%;
+        font-weight:39  0;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+      }
+
+      #greeting span
+      {
+
+          letter-spacing:0;
+          white-space:nowrap
+      }
+
+      #center
+      {
+        margin-top: 230px;
+
+      }
+
+      #center_below_position
+      {
+          display:block;
+          top:50%;
+          left:50%;
+          width:100%;
+          text-align:center;
+          font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+          margin-top: 65px;
+
+      }
+
+      .tasks_entry input
+      {
+          width:38.5%;
+          margin:0 auto;
+          padding-top:15px;
+          display:block;
+          background:0;
+          border:0;
+          border-bottom:2px solid #fff;
+          color:#fff;
+          font-weight:500;
+          outline:0;
+          font-size:35px;
+          text-align:center;
+          display: inline;
+
+      }
+
+      #focuses input
+      {
+          line-height:120%;
+          display: inline;
+      }
+
+      .hidden
+      {
+        display: inline;
+      }
+
+      .hidden h3
+      {
+          color:#fff;
+          font-weight:300;
+          margin:17px 0 3px;
+          font-size:37.5px;
+          line-height:120%;
+          display: inline;
+      }
+
+      #hidden_chk {
+          width:25px;
+          margin-left:0px;
+          display: none;
+          border:none;
+          font-size:80%;
+          line-height:100%;
+          text-align:left;
+          zoom:2.5;
+      }
+
+      #hidden_but
+      {
+          width: 25px;
+          margin-left: 2px;
+          display: none;
+          zoom:1.75;
+      }
+
+      .top_bar
+      {
+        margin-right: 5px;
+      }
+      .top_right{
+          display:flex;
+          flex-direction:row-reverse;
+          flex-wrap:wrap;
+          justify-content:flex-start;
+          text-align:right;
+          color:#fff;
+      }
+
+      .location_label
+      {
+          min-height:13px;
+          max-width:120px;
+          margin:0 -1px;
+          padding:2px 10px;
+          display:inline-block;
+          font-size:62.5%;
+          font-weight:500;
+          opacity:.7;
+          text-transform:uppercase;
+          vertical-align:middle;
+          transition:opacity .5s ease;
+          text-align:right;
+      }
+
+      .weather_temperature
+      {
+        font-weight:550;
+        font-size: 27px;
+      }
+
+
+    .todays-focus
+    {
+          max-width:88%;
+          margin:3px 0 1px!important;
+          display:inline-block;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          text-decoration:line-through;
+          opacity:.85;
+          font-size:120%;
+          line-height:120%;
+    }
+
+
+
+    </style>
+
+  </head>
+
+  <body onload= "auto()">
+
+    <div id="top_bar">
+      <div class="top_right">
+        <div id="weather_elements">
+            <span class="weather_temperature"><img id="icon" src ="images/sunny.png"></span>
+            <span id="temp" class="weather_temperature">23</span>
+            <span class="weather_temperature">°</span> <br>
+            <span id="label_location" class="location_label">location</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="center">
+        <div id="center-clock">
+            <h1 id="current_time"> 12:40</h1>
+        </div>
+
+        <div id="greeting">
+            <h2> Good
+                 <span id="greeting_time_msg">afternoon,</span>
+                 <span id="user_name">Sreejith</span>
+                 <span id="full_stop">.</span>
+            <h2>
+        </div>
+
+    </div>
+
+
+    <div id="center_below_position">
+      <div class="hidden">
+          <h3>What is your main focus for today?</h3>
+      </div>
+      <div class="tasks_entry">
+          <input id="hidden_chk" type="checkbox" ></input>
+          <input id="focuses" type="text" onkeypress="check_key()"></input>
+          <button id="hidden_but" type="button">X</button>
+      </div>
+    </div>
+
+  </body>
+
+<footer>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="source.js"></script>
+</footer>
+
+</html>
