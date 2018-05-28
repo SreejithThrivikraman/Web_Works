@@ -166,6 +166,46 @@
           line-height:120%;
     }
 
+    .pop_1
+    {
+
+      height: 180px;
+      width:270px;
+      position: fixed;
+      bottom: 15%;
+      right: 0.5%;
+      border:2px solid;
+      padding: 10px;
+      background: #696969;
+      border-radius: 9px;
+
+
+    }
+
+    .todo_list
+    {
+
+      float: right;
+      text-decoration: none;
+      margin-right: 15px;
+      margin-bottom: 5px;
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    }
+
+    .pop_input
+    {   color:#000;
+        position: absolute;
+        width: 265px;
+        bottom: 20px;
+    }
+
+    .pop_up_list
+    {
+      
+      float: left;
+    }
+
     </style>
 
   </head>
@@ -205,10 +245,10 @@
           <h3>What is your main focus for today?</h3>
       </div>
 
-      <div class="tasks_entry">
-          <span><input id="hidden_chk" type="checkbox" onchange="checkbox_change()"></input></span>
+      <div id="default_msg" class="tasks_entry">
+          <span><input id="hidden_chk" type="checkbox" onchange="checkbox_change( )"></input></span>
           <span><input id="focuses" type="text" onkeypress="check_key()"></input></span>
-          <span><button id="hidden_but" type="button">X</button></span>
+          <span><button id="hidden_but" type="button" onclick="delete_task()">X</button></span>
       </div>
     </div>
 
@@ -217,6 +257,16 @@
   <footer>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="source.js"></script>
+    <div>
+          <a href="#" class="todo_list" onclick="pop_up_logic()">Todo </a>
+          <div id="pop" class="pop_1" hidden>
+            <ul id="ul_pop_up">
+                  <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li>
+            </ul>
+            <input class="pop_input" type="text" onkeypress="check_key_pop()"></input>
+          </div>
+    </div>
+
   </footer>
 
 </html>

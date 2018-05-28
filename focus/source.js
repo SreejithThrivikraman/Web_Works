@@ -1,6 +1,7 @@
 var user_name = "";
 var logged_in_flag = true;
-var task="";
+var task ="";
+var popped_up_flag = false;
 
 function auto()
 {
@@ -197,4 +198,42 @@ function checkbox_change()
    HTML_content = "<ul><li> "+ task +"  </li></ul>";
    $("ul:first").replaceWith(HTML_content);
   }
+}
+
+function delete_task()
+{
+  $("#greeting").show();
+  $(hidden_chk).hide();
+  $(hidden_but).hide();
+
+  var userName = localStorage.getItem("focus_name_temp_4");
+  $("#user_name").replaceWith(userName);
+  $("ul:first").replaceWith('<input id="focuses" type="text" onkeypress="check_key()"></input>');
+
+
+}
+
+function pop_up_logic()
+{
+  if(popped_up_flag == true)
+  {
+    $("#pop").hide();
+    popped_up_flag= false;
+
+  }
+  else
+  {
+    $("#pop").show();
+    popped_up_flag = true;
+  }
+
+}
+
+
+function check_key_pop()
+{
+    if(event.keyCode === 13)
+    {
+      $(ul_pop_up).append('<br> <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li>');
+    }
 }
