@@ -5,6 +5,7 @@
     <title>test site focus</title>
 
     <style type="text/css">
+
       h1
       {
 
@@ -34,7 +35,6 @@
 
       #greeting span
       {
-
           letter-spacing:0;
           white-space:nowrap
       }
@@ -42,7 +42,6 @@
       #center
       {
         margin-top: 230px;
-
       }
 
       #center_below_position
@@ -54,7 +53,6 @@
           text-align:center;
           font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
           margin-top: 65px;
-
       }
 
       .tasks_entry input
@@ -184,7 +182,7 @@
 
     .todo_list
     {
-
+      color:white;
       float: right;
       text-decoration: none;
       margin-right: 15px;
@@ -202,8 +200,9 @@
 
     .pop_up_list
     {
-      
+      display: inline;
       float: left;
+      position: absolute;
     }
 
     </style>
@@ -259,11 +258,11 @@
     <script type="text/javascript" src="source.js"></script>
     <div>
           <a href="#" class="todo_list" onclick="pop_up_logic()">Todo </a>
-          <div id="pop" class="pop_1" hidden>
-            <ul id="ul_pop_up">
-                  <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li>
+          <div id="pop" class="pop_1" hidden>        <!-- // hiding the pop-up box  -->
+            <ul id="ul_pop_up" style= "list-style-type: none;">
+                  <!-- <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li> -->
             </ul>
-            <input class="pop_input" type="text" onkeypress="check_key_pop()"></input>
+            <input id="pop_up_input" class="pop_input" type="text" onkeypress="check_key_pop()"></input>
           </div>
     </div>
 

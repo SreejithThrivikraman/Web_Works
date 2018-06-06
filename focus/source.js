@@ -2,6 +2,7 @@ var user_name = "";
 var logged_in_flag = true;
 var task ="";
 var popped_up_flag = false;
+var todo_item_no = 0;
 
 function auto()
 {
@@ -61,6 +62,7 @@ function check_key()
       if(logged_in_flag == true)                  // if the user is already logged in.
       {
         task = $("input#focuses").val();
+        localStorage.setItem("task_name1",task);
         HTML_content = "<ul> <li> "+ task +"  </li></ul>";
         $("#focuses").replaceWith(HTML_content);
         $("#hidden").show();
@@ -157,7 +159,7 @@ function showPosition(position)
 function initialize()
 {
     user_name = localStorage.getItem("focus_name_temp_4");
-    if(user_name == null)
+    if(user_name == null)   // if the user is not logged in
     {
        $("#greeting").hide();
       // $("h3:first").replaceWith("Hello, what's your name ?");
@@ -166,7 +168,7 @@ function initialize()
       logged_in_flag = false;
 
     }
-    else
+    else                      // case when the user is already logged in.
     {
       //alert(user_name);
 
@@ -175,10 +177,23 @@ function initialize()
       $(hidden_but).hide();
 
       var userName = localStorage.getItem("focus_name_temp_4");
+      var loaded_task = localStorage.getItem("task_name1");
       $("#user_name").replaceWith(userName);
     //  $("h3:first").replaceWith("<h3>What is your main focus for today?</h3>");
-      $("#focuses").val('');
-      $(hidden_chk).hide();
+
+        if((loaded_task == "")||(loaded_task==null))
+        {
+          $("#focuses").val('');
+          $(hidden_chk).hide();
+        }
+        else
+        {
+          HTML_content = "<ul> <li> "+ loaded_task +"  </li></ul>";
+          $("#focuses").replaceWith(HTML_content);
+          $("#hidden").show();
+          $("#hidden_chk").show();
+          $("#hidden_but").show();
+        }
     }
 }
 
@@ -200,6 +215,24 @@ function checkbox_change()
   }
 }
 
+// check-box operation in the pop-up menu.
+function pop_up_checkbox_change(id)
+{
+  if(document.getElementById('pop_chk').checked)
+  {
+   // checkBox is checked.
+   HTML_content = '<li> <span id='+id+'><input id="pop_chk" type="checkbox" onchange="pop_up_checkbox_change(this.parentNode.id)"></input> '+item_list+' <button id="bingo" type="button" onclick="popup_delete_task(this.parentNode.id)">X</button></span></li>';
+   $('#'+id ).replaceWith(HTML_content);
+
+  }
+  else
+  {
+   // Not checked.
+   HTML_content = "<ul><li> "+ task +"  </li></ul>";
+   $("ul:first").replaceWith(HTML_content);
+  }
+}
+
 function delete_task()
 {
   $("#greeting").show();
@@ -207,6 +240,7 @@ function delete_task()
   $(hidden_but).hide();
 
   var userName = localStorage.getItem("focus_name_temp_4");
+  localStorage.setItem("task_name1","");
   $("#user_name").replaceWith(userName);
   $("ul:first").replaceWith('<input id="focuses" type="text" onkeypress="check_key()"></input>');
 
@@ -229,11 +263,21 @@ function pop_up_logic()
 
 }
 
-
+// check_key_pop() will add the new element to the list.
 function check_key_pop()
 {
     if(event.keyCode === 13)
     {
-      $(ul_pop_up).append('<br> <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li>');
+      var item_list = $("input#pop_up_input").val();
+      $(ul_pop_up).append('<li> <span id='+todo_item_no+'><input id="pop_chk" type="checkbox" onchange="pop_up_checkbox_change(this.parentNode.id)"></input> <div id="text">'+item_list+'</div> <button id="bingo" type="button" onclick="popup_delete_task(this.parentNode.id)">X</button></span></li>');
+      $("#pop_up_input").val('');
+      todo_item_no = todo_item_no + 1;
     }
+}
+
+// deleting the element from the ul list
+function popup_delete_task(id)
+{
+    var id = $('#'+id).closest('span').attr('id');
+    $('#'+id).remove();
 }
