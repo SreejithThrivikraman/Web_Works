@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bug Smasher</title>
+
+    <!-- BULMA : Adding CSS framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <!-- p5.js CDN link -->
+
+    <script src ="js/game.js" type="text/javascript"></script>
+  </head>
+
+  <body onload="draw()">
+
+      <span>
+          <h2 id= 'score' class='title is-4'>Score : 0 </h2>
+
+
+      </span>
+      <nav class="level">
+
+        <!-- Left side -->
+        <div class="level-left">
+
+          <h1 class="title is-2"> BugSmasher ! </h1>
+        </div>
+
+        <!-- Right side -->
+        <div class="level-right">
+          <a id= "reset_game_button" class="button is-primary level-item" onclick="reset_game()">Reset the score !</a>
+          <a id="reset_speed_button" class="button is-danger level-item" onclick="reset_speed()">Reset the speed !</a>
+          <a class="level-item"> </a>
+        </div>
+      </nav>
+
+      <canvas id="Game_Canvas" width="1420" height="700" style="border:1px solid #000000;>
+            <img id = "bug_image" src="images\bug.png">
+      </canvas>
+
+
+  </body>
+
+</html>
