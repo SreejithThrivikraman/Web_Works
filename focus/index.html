@@ -20,6 +20,8 @@
         font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
       }
 
+
+
       #greeting h2
       {
 
@@ -69,15 +71,29 @@
           outline:0;
           font-size:35px;
           text-align:center;
-          display:inline;
+          /* display:inline; */
 
       }
 
-      #focuses input
+      #focuses
       {
-          line-height:120%;
+          /* line-height:120%; */
+          background: transparent;
+          border: none;
+          border-bottom: 3px solid #ffffff;
+          width: 400px;
+          font-size:24px;
+          color: #ffffff;
+          text-align: center;
+          text-decoration-style: solid;
+          text-decoration-color: #ffffff;
+          margin-top: : 40px;
           display: inline;
       }
+
+
+
+
 
       .hidden
       {
@@ -94,31 +110,44 @@
           display: inline;
       }
 
-      #hidden_chk {
-          width:25px;
-          margin-left:0px;
-          display:inline;
-          border:none;
-          font-size:80%;
-          line-height:100%;
-          text-align:left;
+      #hidden_chk
+      {
+
           zoom:2.5;
+          background: none;
+          border-radius: 5px;
+          border:
+          opacity: 40;
 
       }
 
       #hidden_but
       {
-          width: 25px;
-          margin-left: 2px;
-          display: none;
+          /* width: 25px; */
+          /* margin-left: 2px; */
+          display:inline;
+          color: #ffffff;
+           border-radius: 5px;
+
+          background: none;
           zoom:1.75;
+          /* float: right */
+      }
+
+      #default_msg
+      {
+        text-align: center;
+
+        margin: auto;
       }
 
       .top_bar
       {
         margin-right: 5px;
       }
-      .top_right{
+
+      .top_right
+      {
           display:flex;
           flex-direction:row-reverse;
           flex-wrap:wrap;
@@ -166,7 +195,6 @@
 
     .pop_1
     {
-
       height: 180px;
       width:270px;
       position: fixed;
@@ -176,8 +204,6 @@
       padding: 10px;
       background: #696969;
       border-radius: 9px;
-
-
     }
 
     .todo_list
@@ -244,11 +270,23 @@
           <h3>What is your main focus for today?</h3>
       </div>
 
-      <div id="default_msg" class="tasks_entry">
-          <span><input id="hidden_chk" type="checkbox" onchange="checkbox_change( )"></input></span>
-          <span><input id="focuses" type="text" onkeypress="check_key()"></input></span>
-          <span><button id="hidden_but" type="button" onclick="delete_task()">X</button></span>
-      </div>
+
+
+    </div>
+
+    <!-- <div id="default_msg" class="tasks_entry">
+
+        <input id="hidden_chk" type="checkbox" onchange="checkbox_change( )"></input>
+        <input id="focuses" type="text" onkeypress="check_key()"></input>
+        <button id="hidden_but" type="button" onclick="delete_task()">X</button>
+    </div> -->
+
+    <div id="default_msg" >
+
+        <input id="hidden_chk" type="checkbox" onchange="checkbox_change( )"></input>
+        <input id="focuses" type="text" onkeypress="check_key()"></input>
+        <button id="hidden_but" type="button" onclick="delete_task()">X</button>
+
     </div>
 
   </body>
@@ -259,9 +297,12 @@
     <div>
           <a href="#" class="todo_list" onclick="pop_up_logic()">Todo </a>
           <div id="pop" class="pop_1" hidden>        <!-- // hiding the pop-up box  -->
+
             <ul id="ul_pop_up" style= "list-style-type: none;">
-                  <!-- <li class="pop_up_list"> <button type="button">Add</button> hello <button type="button">Add</button></li> -->
+              <li id="list">
+              </li>
             </ul>
+
             <input id="pop_up_input" class="pop_input" type="text" onkeypress="check_key_pop()"></input>
           </div>
     </div>
